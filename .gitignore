@@ -1,0 +1,8 @@
+*.xcodeproj
+*.xcworkspace
+
+DerivedData/
+
+.DS_Store
+
+buildServer.json
