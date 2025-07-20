@@ -1,8 +1,8 @@
 PROJECT = SwiftUIStarter
 
-.PHONY: generate format open
+.PHONY: generate format open build
 
-generate: format
+generate: format build-server
 	xcodegen generate
 
 format:
@@ -18,3 +18,7 @@ build: generate
 		-sdk iphonesimulator \
 		-configuration Debug \
 		build | xcbeautify
+
+
+build-server:
+	xcode-build-server config -project $(PROJECT).xcodeproj
