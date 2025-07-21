@@ -17,3 +17,15 @@ To make this process even a bit easier, we have a Makefile with some predefined 
 Many of these targets build upon each other and execute the things necessary to keep the command always up to date. `generate` will always run `format` and `build-server`. `open` and `build` will always run `generate`.
 
 I recommend for more complex development flows to also make use of fastlane to automate the ci build and especially the provisioning process, as well as setting up commitlint and a formatting hook.
+
+## Getting started
+
+1. Install the required tools:
+   - [xcodegen](https://github.com/yonaskolb/XcodeGen)
+   - [xcode-build-server](https://github.com/SolaWing/xcode-build-server)
+   - [swiftformat](https://github.com/nicklockwood/SwiftFormat)
+   - [xcbeautify](https://github.com/tuist/xcbeautify)
+2. Clone the repository and update the name of the folder, the main app target, the name of the project in the project.yml as well as in the Makefile.
+3. Run `make generate` to generate the Xcode project. `make open` will also generate and open it directly in Xcode.
+4. Run `make build-server` to setup the project for the Swift language server outside of Xcode.
+5. Enjoy and have fun writing awesome Swift code!
