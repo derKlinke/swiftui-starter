@@ -2,7 +2,7 @@ PROJECT = SwiftUIStarter
 
 .PHONY: generate format open build
 
-generate: format build-server
+generate: format
 	xcodegen generate
 
 format:
