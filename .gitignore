@@ -2,6 +2,7 @@
 *.xcworkspace
 
 DerivedData/
+Derived/
 
 .DS_Store
 

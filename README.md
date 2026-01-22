@@ -1,31 +1,37 @@
 # SwiftUI Starter
 
-This repository template outlines a simple setup for SwiftUI projects that also work well outside of Xcode. To achieve this, we make use of the following tools:
+Template for SwiftUI projects with a filesystem-first setup using Tuist + just. Generates Xcode workspace, builds/tests via Tuist, formats with SwiftFormat, optional build-server for LSP.
 
-- **xcodegen** to generate the Xcode project, so the file system is the source of truth.
-- **xcode-build-server** to make Xcode projects workable for the Swift language server.
-- **swiftformat** to format the code.
+## Tooling
 
-To make this process even a bit easier, we have a Makefile with some predefined targets.
+- **Tuist**: project generation and build/test orchestration.
+- **just**: command runner.
+- **swiftformat**: formatting.
+- **xcode-build-server** (optional): Swift language server support.
 
-- **make format** to format the code.
-- **make build** to build the project.
-- **make open** to open the project in Xcode.
-- **make generate** to generate the Xcode project.
-- **make build-server** to generate the Xcode project.
+## Commands
 
-Many of these targets build upon each other and execute the things necessary to keep the command always up to date. `generate` will always run `format` and `build-server`. `open` and `build` will always run `generate`.
-
-I recommend for more complex development flows to also make use of fastlane to automate the ci build and especially the provisioning process, as well as setting up commitlint and a formatting hook.
+- `just generate` generate the Xcode workspace.
+- `just build` build the app in the iOS simulator.
+- `just test` run unit tests.
+- `just open` open the workspace in Xcode.
+- `just format` format code (no-op if SwiftFormat missing).
+- `just build-server` configure xcode-build-server.
 
 ## Getting started
 
-1. Install the required tools:
-   - [xcodegen](https://github.com/yonaskolb/XcodeGen)
-   - [xcode-build-server](https://github.com/SolaWing/xcode-build-server)
+1. Install required tools:
+   - [tuist](https://tuist.io)
+   - [just](https://github.com/casey/just)
    - [swiftformat](https://github.com/nicklockwood/SwiftFormat)
-   - [xcbeautify](https://github.com/tuist/xcbeautify)
-2. Clone the repository and update the name of the folder, the main app target, the name of the project in the project.yml as well as in the Makefile.
-3. Run `make generate` to generate the Xcode project. `make open` will also generate and open it directly in Xcode.
-4. Run `make build-server` to setup the project for the Swift language server outside of Xcode.
-5. Enjoy and have fun writing awesome Swift code!
+   - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) (optional)
+2. Rename the folder, then update:
+   - `Project.swift` (project name, bundle ID, development team)
+   - `SwiftUIStarter/Info.plist` (display name if needed)
+3. Adjust simulator defaults in `justfile` if your local runtimes differ.
+4. Run `just generate` and open the workspace.
+
+## Notes
+
+- Generated artifacts (`*.xcodeproj`, `*.xcworkspace`) are ignored by Git.
+- For CI, use `just build` and `just test`.
