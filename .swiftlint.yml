@@ -49,14 +49,16 @@ opt_in_rules:
     - private_swiftui_state
     - weak_delegate
 
-included:
-    - ios/B90HQ
-    - ios/Library
-    - ios/B90HQTests
-
 excluded:
-    - ios/B90HQ/_generated
-    - ios/DerivedData
+    - .build
+    - .git
+    - .swiftpm
+    - Carthage
+    - Pods
+    - DerivedData
+    - build
+    - fastlane
+    - "**/_generated"
 
 # we disable mist default formatting rules since we handle formatting via swiftformat
 # and we want to avoid conflicts between swiftlint and swiftformat

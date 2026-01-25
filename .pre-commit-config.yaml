@@ -1,0 +1,19 @@
+# format-configs
+repos:
+  - repo: local
+    hooks:
+      - id: markdownlint
+        name: markdownlint
+        entry: npx --yes -p markdownlint-cli markdownlint --config .markdownlint.json --ignore-path .markdownlintignore
+        language: system
+        files: \.(md|mdx)$
+      - id: swiftformat
+        name: swiftformat
+        entry: swiftformat
+        language: system
+        files: \.(swift)$
+      - id: swiftlint
+        name: swiftlint
+        entry: swiftlint lint --config .swiftlint.yml --force-exclude --reporter github-actions-logging
+        language: system
+        files: \.(swift)$
