@@ -1,1 +1,127 @@
-/Users/fabianklinke/Developer/swiftui-starter/tools/format-configs/configs/.swiftformat
+--acronyms ID,URL,UUID
+--allman false
+--allow-partial-wrapping true
+--anonymous-for-each convert
+--asset-literals visual-width
+--async-capturing
+--before-marks
+--binary-grouping none
+--blank-line-after-switch-case multiline-only
+--call-site-paren default
+--category-mark "MARK: %c"
+--class-threshold 0
+--closing-paren balanced
+--closure-void remove
+--complex-attributes preserve
+--computed-var-attributes preserve
+--conditional-assignment after-property
+--conflict-markers reject
+--date-format system
+--decimal-grouping 3,4
+--default-test-suite-attributes
+--doc-comments before-declarations
+--else-position same-line
+--empty-braces no-space
+--enum-namespaces always
+--enum-threshold 0
+--equatable-macro none
+--exponent-case lowercase
+--exponent-grouping disabled
+--extension-acl on-declarations
+--extension-mark "MARK: - %t + %c"
+--extension-threshold 0
+--file-macro "#file"
+--fraction-grouping disabled
+--fragment false
+--func-attributes prev-line
+--generic-types
+--group-blank-lines true
+--grouped-extension "MARK: %t + %c"
+--guard-else auto
+--header strip
+--hex-grouping none
+--hex-literal-case uppercase
+--ifdef indent
+--import-grouping alpha
+--indent 4
+--indent-case false
+--indent-strings false
+--inferred-types always
+--init-coder-nil false
+--language-mode 0
+--lifecycle
+--line-after-marks false
+--line-between-guards false
+--linebreaks lf
+--mark-categories false
+--mark-class-threshold 0
+--mark-enum-threshold 0
+--mark-extension-threshold 0
+--mark-extensions always
+--mark-struct-threshold 0
+--mark-types always
+--markdown-files ignore
+--max-width 120
+--modifier-order
+--never-trailing
+--nil-init remove
+--no-space-operators
+--no-wrap-operators
+--non-complex-attributes
+--octal-grouping none
+--operator-func spaced
+--organization-mode type
+--organize-types actor,class,enum,struct
+--pattern-let hoist
+--preserve-acronyms
+--preserve-decls
+--preserved-property-types Package
+--property-types inferred
+--ranges spaced
+--redundant-async tests-only
+--redundant-throws tests-only
+--self remove
+--self-required
+--semicolons never
+--short-optionals always
+--single-line-for-each ignore
+--smart-tabs enabled
+--some-any true
+--sort-swiftui-properties first-appearance-sort
+--sorted-patterns
+--stored-var-attributes preserve
+--strip-unused-args always
+--struct-threshold 0
+--swift-version 6.1
+--tab-width unspecified
+--throw-capturing
+--timezone system
+--trailing-closures
+--trailing-commas always
+--trim-whitespace always
+--type-attributes prev-line
+--type-blank-lines remove
+--type-body-marks preserve
+--type-delimiter space-after
+--type-mark "MARK: - %t"
+--type-marks
+--type-order
+--url-macro none
+--visibility-marks
+--visibility-order
+--void-type Void
+--wrap-arguments after-first
+--wrap-collections before-first
+--wrap-conditions after-first
+--wrap-effects preserve
+--wrap-enum-cases always
+--wrap-parameters after-first
+--wrap-return-type preserve
+--wrap-string-interpolation default
+--wrap-ternary default
+--wrap-type-aliases preserve
+--xcode-indentation disabled
+--xctest-symbols
+--yoda-swap always
+--disable redundantSelf,spaceAroundParens,unusedArguments,wrapMultilineStatementBraces
+--enable acronyms,blankLineAfterSwitchCase,blankLinesBetweenImports,blockComments,docComments,environmentEntry,noForceTryInTests,noForceUnwrapInTests,noGuardInTests,preferSwiftTesting,privateStateVariables,redundantAsync,redundantEquatable,redundantProperty,redundantThrows,sortSwitchCases,wrapConditionalBodies,wrapEnumCases,wrapMultilineConditionalAssignment,wrapMultilineFunctionChains,wrapSwitchCases

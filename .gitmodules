@@ -1,3 +1,0 @@
-[submodule "tools/format-configs"]
-	path = tools/format-configs
-	url = https://github.com/derKlinke/format-configs.git

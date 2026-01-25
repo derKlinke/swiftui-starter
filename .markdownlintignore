@@ -1,1 +1,3 @@
-/Users/fabianklinke/Developer/swiftui-starter/tools/format-configs/configs/.markdownlintignore
+DerivedData/
+node_modules/
+build/

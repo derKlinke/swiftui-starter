@@ -1,1 +1,8 @@
-/Users/fabianklinke/Developer/swiftui-starter/tools/format-configs/configs/.markdownlint.json
+{
+    "MD001": false,
+    "MD033": false,
+    "MD013": false,
+    "MD041": false,
+    "MD040": false,
+    "MD024": false
+}
