@@ -8,9 +8,7 @@ simulator_os := "26.2"
 
 alias b := build
 alias t := test
-alias f := format
 alias o := open
-alias fmt := format
 
 default:
     @just --list
@@ -45,11 +43,14 @@ build-server: (generate)
     xcode-build-server config -workspace {{ project_name }}.xcworkspace -scheme {{ default_scheme }}
 
 # formats code when tooling is available
+
+# format-configs
+alias fmt := format
+alias f := format
 [group('formatting')]
 format:
-    #!/usr/bin/env bash
-    if command -v swiftformat >/dev/null 2>&1; then
-      swiftformat {{ project_name }}
-    else
-      echo "swiftformat not installed; skipping"
-    fi
+    just --fmt --unstable
+    if command -v swiftformat >/dev/null; then swiftformat .; fi
+    if command -v swiftlint >/dev/null; then swiftlint --config .swiftlint.yml --force-exclude --reporter github-actions-logging; fi
+    npx --yes -p markdownlint-cli markdownlint --config .markdownlint.json --ignore-path .markdownlintignore "**/*.md"
+# /format-configs
