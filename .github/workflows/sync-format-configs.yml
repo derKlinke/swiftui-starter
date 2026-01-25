@@ -1,19 +1,19 @@
 # format-configs
 name: Sync format configs
 on:
-  schedule:
-    - cron: "0 2 * * *"
-  workflow_dispatch:
+    schedule:
+        - cron: "0 2 * * *"
+    workflow_dispatch:
 permissions:
-  contents: write
+    contents: write
 jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: derKlinke/miedinger/.github/actions/sync-format-configs@main
-        with:
-          mode: detect
-          force: true
-          commit: true
-          push: true
+    sync:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: derKlinke/miedinger/.github/actions/sync-format-configs@main
+              with:
+                mode: detect
+                force: true
+                commit: true
+                push: true
