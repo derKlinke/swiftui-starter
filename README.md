@@ -6,6 +6,7 @@ Template for SwiftUI projects with a filesystem-first setup using Tuist + just. 
 
 - **Tuist**: project generation and build/test orchestration.
 - **just**: command runner.
+- **miedinger**: formatter configs + hooks + format recipe sync ([repo](https://github.com/derKlinke/miedinger)).
 - **swiftformat**: formatting.
 - **xcode-build-server** (optional): Swift language server support.
 
@@ -35,3 +36,25 @@ Template for SwiftUI projects with a filesystem-first setup using Tuist + just. 
 
 - Generated artifacts (`*.xcodeproj`, `*.xcworkspace`) are ignored by Git.
 - For CI, use `just build` and `just test`.
+
+## miedinger (format configs + CI sync)
+
+This repo uses miedinger to manage formatter configs, pre-commit hooks, and the managed `just format` block. Expect the following files to be owned by miedinger and overwritten on sync:
+
+- `.swiftformat`, `.swiftlint.yml`
+- `.markdownlint.json`, `.markdownlintignore`
+- `.pre-commit-config.yaml`
+- `justfile` block between `# format-configs` / `# /format-configs`
+- `.github/workflows/sync-format-configs.yml`
+
+Development implications:
+
+- Don’t hand-edit the managed block or config files; re-run miedinger instead.
+- Re-sync locally with:
+  - `npx @derklinke/miedinger --detect --force` (adds/updates configs)
+  - `prek install` (optional; installs git hooks)
+
+CI actions installed:
+
+- `Sync format configs` workflow listens to `workflow_dispatch` and `repository_dispatch` (`sync-format-configs`).
+- Uses `derKlinke/miedinger/.github/actions/sync-format-configs@main` with `mode: detect`, `force: true`, `commit: true`, `push: true` to auto-update configs.
