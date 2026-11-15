@@ -2,18 +2,23 @@
 repos:
   - repo: local
     hooks:
-      - id: markdownlint
-        name: markdownlint
-        entry: npx --yes -p markdownlint-cli markdownlint --config .markdownlint.json --ignore-path .markdownlintignore
+      - id: gitleaks
+        name: gitleaks
+        entry: gitleaks git --staged --no-banner --redact
         language: system
-        files: \.(md|mdx)$
+        pass_filenames: false
+        priority: 10
+      - id: prettier
+        name: prettier
+        entry: npx --yes prettier --log-level error --config .prettierrc.json --ignore-path .prettierignore --write
+        language: system
+        files: \.(js|jsx|ts|tsx|json|jsonc|yaml|yml|css|scss|html|vue|svelte|astro|md|mdx)$
+        exclude: ^\.pre-commit-config\.ya?ml$
+        priority: 0
       - id: swiftformat
         name: swiftformat
-        entry: swiftformat
+        entry: swiftformat --quiet
         language: system
         files: \.(swift)$
-      - id: swiftlint
-        name: swiftlint
-        entry: swiftlint lint --config .swiftlint.yml --force-exclude --reporter github-actions-logging
-        language: system
-        files: \.(swift)$
+        pass_filenames: true
+        priority: 0

@@ -45,12 +45,14 @@ build-server: (generate)
 # formats code when tooling is available
 
 # format-configs
+
 alias fmt := format
 alias f := format
+
 [group('formatting')]
 format:
     just --fmt --unstable
-    if command -v swiftformat >/dev/null; then swiftformat .; fi
-    if command -v swiftlint >/dev/null; then swiftlint --config .swiftlint.yml --force-exclude --reporter github-actions-logging; fi
-    npx --yes -p markdownlint-cli markdownlint --config .markdownlint.json --ignore-path .markdownlintignore "**/*.md"
+    if command -v swiftformat >/dev/null; then swiftformat . --quiet; fi
+    npx --yes prettier --log-level error --config .prettierrc.json --ignore-path .prettierignore --write .
+
 # /format-configs

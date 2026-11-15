@@ -49,19 +49,12 @@ opt_in_rules:
     - private_swiftui_state
     - weak_delegate
 
-excluded:
-    - .build
-    - .git
-    - .swiftpm
-    - Carthage
-    - Pods
-    - DerivedData
-    - build
-    - fastlane
-    - "**/_generated"
+cyclomatic_complexity:
+    warning: 20
+    error: 30
+    ignores_case_statements: true
 
-# we disable mist default formatting rules since we handle formatting via swiftformat
-# and we want to avoid conflicts between swiftlint and swiftformat
+# disabled formatting rules since formatting handled via swiftformat
 disabled_rules:
     - force_cast
     - force_try
@@ -91,7 +84,3 @@ disabled_rules:
     - type_body_length
     - function_body_length
     - function_parameter_count
-cyclomatic_complexity:
-    warning: 20
-    error: 30
-    ignores_case_statements: true

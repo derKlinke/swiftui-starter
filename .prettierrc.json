@@ -1,0 +1,20 @@
+{
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 120,
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": ["*.md", "*.mdx"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ],
+    "proseWrap": "always"
+}
